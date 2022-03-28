@@ -1,9 +1,9 @@
 # Isekai'd playtest bot
 import lightbulb
 import math, sys, random
+# might switch to numpy uniform dist or poisson/gaussian dis if clock time random lib is not good enough
 
-DICE = [0, 0, 1, 1, 1, 2]
-SEEDS = [23452435, 645734567, 1234, 5467567, 2341234, 13213, 4545454, 5656, 3426]
+DICE = [0, 1, 1, 1, 2, 2]
 
 bot = lightbulb.BotApp(token='', default_enabled_guilds=(931625225672617984))
 
@@ -20,7 +20,6 @@ async def summon_bot(context):
 @lightbulb.command('roll', 'Rolls Isedice, enter number of dice rolled for sty/sub/spice')
 @lightbulb.implements(lightbulb.SlashCommand)
 async def roll_dice(context):
-	random.seed(random.choice(SEEDS))
 	stytotal = 0 
 	subtotal = 0
 	spitotal = 0
